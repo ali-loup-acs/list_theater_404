@@ -1,0 +1,18 @@
+{
+  "theater" : {
+    "name" : "toto",
+    "address" : "123, soleil 12 131 MyTeam"
+  },
+  "theater20" : {
+    "name" : "toto1",
+    "address" : "123, soleil 12 131 mememem"
+  },
+  "theater564" : {
+    "name" : "toto2",
+    "address" : "123, soleil 12 131 teaaaaa"
+  },
+  "theater687" : {
+    "name" : "toto3",
+    "address" : "123, soleil 12 131 ppaaaaaaaa"
+  }
+}
