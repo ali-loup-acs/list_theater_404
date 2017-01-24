@@ -43,7 +43,7 @@ class Spectacles extends Dao // utilisation d'une classe d'accés aux données D
   function find_spectacles_by_zipcode($zipcode){ //recupere des spectacles
 
     $query = "zip_code = $zipcode";
-    
+
     $this->setQuery($query);
 
     $results = $this->findData(null,'ASC');
@@ -85,9 +85,19 @@ class Spectacles extends Dao // utilisation d'une classe d'accés aux données D
   }
 
   // return an array with zipcodes of all spectacles
-  function spectacles_zipcode(){
-    $this->selectFields('zip_code');
-    return $this->findData();
+  function spectacles_zipcode($zip){
+    $digits = strlen((string)$zip);
+    $rest_digits = 5 - $digits;
+    $query = "0";
+    if ($digits<6) {
+      $query = "zip_code REGEXP '^$zip\[0-9\]{0,$rest_digits}$'";//AND zip_code REGEXP \'^$zip\[0-9\]{0,$digits}$\'";
+    }
+
+    $this->setQuery($query);
+
+    $results = $this->findData(null, 'DESC');
+
+   return $results;
   }
 }
 
