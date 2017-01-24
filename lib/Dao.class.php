@@ -225,7 +225,7 @@
         }
 
         // déclaration de la variable
-        $sql = ' WHERE 1 ';
+        $sql = ' WHERE ';
 
         if (!empty($this->queryString)) {
             $sql .= $this->queryString;
@@ -235,9 +235,15 @@
         $sql_total = 'SELECT COUNT(DISTINCT '.$this->aliastable.'.'.$this->idtable.') as total
                       FROM '.$this->table.' '.$this->aliastable.' '.$sql;
 
+
+
         // statement
         $sth_total = $this->db->prepare($sql_total);
+
+    /*     echo ($sql_total);*/
         $sth_total->execute();
+
+
 
         if (!$sth_total) {
             echo "\nPDO::errorInfo():\n";
@@ -271,6 +277,8 @@
 
         // pour le débugage
         $this->sql = $sql;
+        echo ($sql);
+
 
         // premier enregistrement ensuite nextData()
         $sth = $this->db->prepare($this->sql);
@@ -282,9 +290,11 @@
             exit;
         }
 
-        $this->r = $sth->fetch(PDO::FETCH_LAZY);
+        $this->r = $sth->fetchAll(PDO::FETCH_ASSOC);
 
         $this->list = $sth;
+
+        return $this->r;
 
     }
 
@@ -301,7 +311,9 @@
      * @see         findData
      * @access      public
      */
-    public function setQuery($query) { $this->queryString = $query; }
+    public function setQuery($query) { 
+        $this->queryString = $query; 
+    }
          
     // }}}
     

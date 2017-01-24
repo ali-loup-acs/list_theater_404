@@ -3,19 +3,16 @@
 require_once('Dao.class.php');
 require_once('Api.class.php');
 
+
 /**
  *
  */
-
-
-
-
 
 class Spectacles extends Dao // utilisation d'une classe d'accés aux données DAO data access object -> look for class php dao
 {
 
 
-  public function __construct($pdo) // 
+  public function __construct($pdo) //
   {
 
     $this->table = 'spectacles';
@@ -36,14 +33,26 @@ class Spectacles extends Dao // utilisation d'une classe d'accés aux données D
      );
 
 
-}
-  function get_(){ //recupere un spectacle
+  }
+  function get_spectacle_by_name(){ //recupere un spectacle
 
   }
 
-  function find_spectacles(){ //recupere des spectacles
 
+
+  function find_spectacles_by_zipcode($zipcode){ //recupere des spectacles
+
+    $query = "zip_code = $zipcode";
+    
+    $this->setQuery($query);
+
+    $results = $this->findData(null,'ASC');
+
+   return $results;
   }
+
+
+
 
   function insert_data_from_api($nb_day = 7){
     $api = new Api();
@@ -59,14 +68,14 @@ class Spectacles extends Dao // utilisation d'une classe d'accés aux données D
         'object_show' => $value['object'],
         'zip_code' => $value['zipcode'],
         'city' => $value['city'],
-       'info_show' => $value['permanent_url'], //?
-       'info_place' => $value['permanent_url'], //?
+       'info_show' => $value['permanent_url_show'], //?
+       'info_place' => $value['permanent_url_place'], //?
        'date_start' => $value['start'],
        'date_end' => $value['end'],
        'poster' => $value['poster'],
 
 
-     ));
+       ));
 
       $this->setData();
 
@@ -74,8 +83,12 @@ class Spectacles extends Dao // utilisation d'une classe d'accés aux données D
 
 
   }
+
+  // return an array with zipcodes of all spectacles
+  function spectacles_zipcode(){
+    $this->selectFields('zip_code');
+    return $this->findData();
+  }
 }
 
 ?>
-
-

@@ -122,20 +122,8 @@ my_Suggestion_class.initialize();
               });
           });
 
-// my_Suggestion_class.initialize();
-// var typeahead_elem = $('.typeahead');
-// 	typeahead_elem.typeahead({
-// 	  hint: true,
-// 	  highlight: true,
-// 	  minLength: 1
-// 	},
-// 	{
-// 	  // `ttAdapter` wraps the suggestion engine in an adapter that
-// 	  // is compatible with the typeahead jQuery plugin
-// 		  name: '',
-// 		  displayKey: '',
-// 		  source: my_Suggestion_class.ttAdapter()
-// 	});
+
+
 
 
 </script>
