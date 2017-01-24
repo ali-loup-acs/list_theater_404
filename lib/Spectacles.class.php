@@ -15,7 +15,7 @@ class Spectacles extends Dao // utilisation d'une classe d'accés aux données D
 {
 
 
-  public function __construct($pdo) // 
+  public function __construct($pdo) //
   {
 
     $this->table = 'spectacles';
@@ -74,8 +74,12 @@ class Spectacles extends Dao // utilisation d'une classe d'accés aux données D
 
 
   }
+
+  // return an array with zipcodes of all spectacles
+  function spectacles_zipcode(){
+    $this->selectFields('zip_code');
+    return $this->findData();
+  }
 }
 
 ?>
-
-
