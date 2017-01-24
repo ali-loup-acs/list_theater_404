@@ -5,7 +5,12 @@ class Db{
 
   }
 
-  function 
+  function insertdb() {
+
+
+
+  	
+  }
 
 }
  ?>

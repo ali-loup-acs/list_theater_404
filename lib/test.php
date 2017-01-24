@@ -1,10 +1,15 @@
+<?php
+
 require_once 'Spectacles.class.php';
+require_once '../connect.php';
+
+$pdo = connect();
 
 // nouvel objet spectacles
-$spectacles = new Spectacles();
+$spectacles = new Spectacles($pdo);
 
 // préparer les champs
-$spectacles->setUpdateFiels(array(
+$spectacles->setUpdateFields(array(
     'title' => 'Mon super titre',
 ));
 
