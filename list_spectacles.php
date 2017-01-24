@@ -12,7 +12,7 @@ $spectacles = new Spectacles($pdo);
 
 /*$spectacles->insert_data_from_api(1);*/
 
-// list all zipcode available in database
+// list all zipcode available in databasegit a
 
 // list spectacles for a given zipcode
 
