@@ -1,26 +1,42 @@
 <?php
-  ini_set('display_errors', '1');
+ini_set('display_errors', '1');
   // list of spectacles by zip code
   // using Spectacles object to print
-  require_once 'Spectacles.class.php';
-  require_once 'lib/connect.php';
+require_once 'lib/Spectacles.class.php';
+require_once 'connect.php';
 
-  $pdo = connect();
+$pdo = connect();
 
-  // nouvel objet spectacles
-  $spectacles = new Spectacles($pdo);
+  // nouvel objet spectacles -> input all spectacles in database
+$spectacles = new Spectacles($pdo);
 
-  // préparer les champs
-  /*$spectacles->setUpdateFields(array());*/
+/*$spectacles->insert_data_from_api(1);*/
+
+// list all zipcode available in database
+
+
+
+// list spectacles for a given zipcode
+
+$zip_code = $_REQUEST['zip_code'];
+
+$spectacles_result = $spectacles->find_spectacles_by_zipcode($zip_code);
+
+print_r($spectacles_result);
+
+
+
+
+
+    // préparer les champs
+/*$spectacles->setUpdateFields(array());*/
 
   // enregistrer !
   // si on ajoute true en deuxième paramètre, on peut récupérer l'id du nouvel enregistrement
-  /*$new_id = $spectacles->setData(null,true);*/
+/*$new_id = $spectacles->setData(null,true);*/
 
   // récupérer (SELECT) le nouvel enregistrement
-  /*$new_row = $spectacles->getData($new_id);*/
+/*$new_row = $spectacles->getData($new_id);*/
 
   // afficher le nouvel enregistrement récupéré
-  /*print_r($new_row);*/
-
-  $spectacles->insert_data_from_api(1);
+/*print_r($new_row);*/

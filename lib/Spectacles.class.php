@@ -3,13 +3,10 @@
 require_once('Dao.class.php');
 require_once('Api.class.php');
 
+
 /**
  *
  */
-
-
-
-
 
 class Spectacles extends Dao // utilisation d'une classe d'accés aux données DAO data access object -> look for class php dao
 {
@@ -36,14 +33,26 @@ class Spectacles extends Dao // utilisation d'une classe d'accés aux données D
      );
 
 
-}
-  function get_(){ //recupere un spectacle
+  }
+  function get_spectacle_by_name(){ //recupere un spectacle
 
   }
 
-  function find_spectacles(){ //recupere des spectacles
 
+
+  function find_spectacles_by_zipcode($zipcode){ //recupere des spectacles
+
+    $query = "zip_code = $zipcode";
+    
+    $this->setQuery($query);
+
+    $results = $this->findData(null,'ASC');
+
+   return $results;
   }
+
+
+
 
   function insert_data_from_api($nb_day = 7){
     $api = new Api();
@@ -66,7 +75,7 @@ class Spectacles extends Dao // utilisation d'une classe d'accés aux données D
        'poster' => $value['poster'],
 
 
-     ));
+       ));
 
       $this->setData();
 
