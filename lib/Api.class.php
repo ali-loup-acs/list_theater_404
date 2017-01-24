@@ -5,7 +5,7 @@
 
     private $api_request = 'api/spectacles/all/search?'; // Requête (OBJET = identifiant unique)
 
-    private $api_key = 'API_KEY'; // Clé API
+    private $api_key = 'API_KEYd'; // Clé API
 
     private $api_call;
 
@@ -51,21 +51,23 @@
 
       $this->set($days);
       if($arr){
-        $infos_spectacles_json = json_decode($this->exec());
+        $infos_spectacles = json_decode($this->exec());
         $spectacles= array();
-        $spectacles['title'] = $infos_spectacles_json[0]->title;
-        $spectacles['object'] = $infos_spectacles_json[0]->object;
-        $spectacles['zipcode'] = $infos_spectacles_json[0]->near_dates->zipcode;
-        $spectacles['city'] = $infos_spectacles_json[0]->near_dates->city;
-        $spectacles['permanent_url_show'] = $infos_spectacles_json[0]->permanent_url;
-        $spectacles['permanent_url_place'] = $infos_spectacles_json[0]->near_dates->place->permanent_url;
-        $spectacles['start'] = $infos_spectacles_json[0]->near_dates->start;
-        $spectacles['end'] =  $infos_spectacles_json[0]->near_dates->end;
-        $spectacles['poster'] = $infos_spectacles_json[0]->poster;
+        foreach ($infos_spectacles as $key => $value) {
+          $spectacles[$key]['title'] = $infos_spectacles[$key]->title;
+          $spectacles[$key]['object'] = $infos_spectacles[$key]->object;
+          $spectacles[$key]['zipcode'] = $infos_spectacles[$key]->near_dates->zipcode;
+          $spectacles[$key]['city'] = $infos_spectacles[$key]->near_dates->city;
+          $spectacles[$key]['permanent_url_show'] = $infos_spectacles[$key]->permanent_url;
+          $spectacles[$key]['permanent_url_place'] = $infos_spectacles[$key]->near_dates->place->permanent_url;
+          $spectacles[$key]['start'] = $infos_spectacles[$key]->near_dates->start;
+          $spectacles[$key]['end'] =  $infos_spectacles[$key]->near_dates->end;
+          $spectacles[$key]['poster'] = $infos_spectacles[$key]->poster;
+        }
         return $spectacles;
       }
       else{
-        return json_decode($this->exec());
+        return $this->exec();
       }
     }
   }
