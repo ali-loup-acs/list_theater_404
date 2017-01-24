@@ -9,16 +9,17 @@ $pdo = connect();
 $spectacles = new Spectacles($pdo);
 
 // préparer les champs
-$spectacles->setUpdateFields(array(
-    'title' => 'Mon super titre',
-));
+/*$spectacles->setUpdateFields(array());*/
 
 // enregistrer !
 // si on ajoute true en deuxième paramètre, on peut récupérer l'id du nouvel enregistrement
-$new_id = $spectacles->setData(null,true);
+/*$new_id = $spectacles->setData(null,true);*/
 
 // récupérer (SELECT) le nouvel enregistrement
-$new_row = $spectacles->getData($new_id);
+/*$new_row = $spectacles->getData($new_id);*/
 
 // afficher le nouvel enregistrement récupéré
-print_r($new_row);
+/*print_r($new_row);*/
+
+$spectacles->insert_data_from_api(1);
+

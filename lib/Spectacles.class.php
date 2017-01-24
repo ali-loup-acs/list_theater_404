@@ -59,8 +59,8 @@ class Spectacles extends Dao // utilisation d'une classe d'accés aux données D
         'object_show' => $value['object'],
         'zip_code' => $value['zipcode'],
         'city' => $value['city'],
-       'info_show' => $value['permanent_url'], //?
-       'info_place' => $value['permanent_url'], //?
+       'info_show' => $value['permanent_url_show'], //?
+       'info_place' => $value['permanent_url_place'], //?
        'date_start' => $value['start'],
        'date_end' => $value['end'],
        'poster' => $value['poster'],
