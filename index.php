@@ -1,33 +1,19 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-<head>
-<title>list_theater</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<script type="text/javascript" src="cmap/france.js"></script>
-<script type="text/javascript" src="cmap/cmap.js"></script>
-</head>
+require_once 'Spectacles.class.php';
 
-<body>
-<h2>Nouvelles régions de France</h2>
+// nouvel objet spectacles
+$spectacles = new Spectacles();
 
-<div id="tip">&nbsp;</div>
-<div id="cmap"></div>
-<script type="text/javascript" src="cmap/france.js"></script>
-<script type="text/javascript" src="cmap/cmap.js"></script>
-<!-- fin du code -->
-<ol>
-<div id="tip">&nbsp;</div>
-<div id="cmap"></div>
-<script type="text/javascript" src="cmap/france.js"></script>
-<script type="text/javascript" src="cmap/cmap.js"></script>
-</textarea>
-</li>
-</ol>
+// préparer les champs
+$spectacles->setUpdateFiels(array(
+    'title' => 'Mon super titre',
+));
 
+// enregistrer !
+// si on ajoute true en deuxième paramètre, on peut récupérer l'id du nouvel enregistrement
+$new_id = $spectacles->setData(null,true);
 
+// récupérer (SELECT) le nouvel enregistrement
+$new_row = $spectacles->getData($new_id);
 
-
-
-</body>
-</html>
-
+// afficher le nouvel enregistrement récupéré
+print_r($new_row);
