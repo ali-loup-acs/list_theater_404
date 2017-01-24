@@ -5,7 +5,7 @@
 
     private $api_request = 'api/spectacles/all/search?'; // Requête (OBJET = identifiant unique)
 
-    private $api_key = 'API_KEYd'; // Clé API
+    private $api_key = '53e87c5bc7607ad500e29fd0a955af5f7e38c457'; // Clé API
 
     private $api_call;
 
