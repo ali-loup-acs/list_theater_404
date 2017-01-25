@@ -90,7 +90,7 @@ class Spectacles extends Dao // utilisation d'une classe d'accés aux données D
     $rest_digits = 5 - $digits;
     $query = "0";
     if ($digits<6) {
-      $query = "zip_code REGEXP '^$zip\[0-9\]{0,$rest_digits}$'";
+      $query = "zip_code REGEXP '^$zip\[0-9\]{0,$rest_digits}$' GROUP BY zip_code";
     }
 
     $this->setQuery($query);
