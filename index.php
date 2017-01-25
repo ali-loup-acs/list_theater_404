@@ -84,7 +84,7 @@
     <input class="typeahead" type="text" class="form-control typeahead" id="zip_code" placeholder="Test">
   </div>
 
-<script>
+  <script>
 // source de données déclarées
 var bestPictures = new Bloodhound({
   datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
@@ -105,27 +105,33 @@ $('#remote .typeahead').typeahead(null, {
   display: 'zip_code',
   source: bestPictures,
   templates: {
-/*    header: '<h3 class="search-subtitle"><i class="fa fa-book"></i> Livres</h3>',*/
+    /*    header: '<h3 class="search-subtitle"><i class="fa fa-book"></i> Livres</h3>',*/
     /*footer: function(infos) { return moreResults(infos,'books'); },*/
     empty: '<p class="search-no-result">Aucun spectacles trouvés.</p>',
     suggestion: function (data) { return zipcode_template(data) }
   }
 });
 
-$('#remote .typeahead').bind('typeahead:select', function(ev, suggestion) {
+/*$('#remote .typeahead').bind('typeahead:select', function(ev, suggestion) {
+
   console.log(suggestion);
+  
   window.location.href = 'list_spectacles.php?zip_code='+suggestion['zip_code'];
 
-});
+});*/
 
 $('#remote .typeahead').keypress(function (e) {
-    if (e.which == 13) {
-        var selectedValue = $('#remote .typeahead #zip_code').value;
-        window.location.href = 'list_spectacles.php?zip_code='+selectedValue;
-    }
+  if (e.which == 13) {
+
+    var selectedValue = $('#remote .typeahead')[1].value;
+    window.location.href = 'list_spectacles.php?zip_code='+selectedValue;
+
+  }
 });
 
 </script>
 </body>
 </html>
+
+
 
