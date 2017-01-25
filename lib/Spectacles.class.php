@@ -95,7 +95,7 @@ class Spectacles extends Dao // utilisation d'une classe d'accés aux données D
 
     $this->setQuery($query);
 
-    $results = $this->findData(null, 'DESC');
+    $results = $this->findData('zip_code', 'ASC');
 
    return $results;
   }
