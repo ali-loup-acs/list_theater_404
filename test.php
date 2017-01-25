@@ -100,8 +100,14 @@ var bestPictures = new Bloodhound({
 // a qui appliquer le typeahead et avec quelle source de données
 $('#remote .typeahead').typeahead(null, {
   name: 'best-pictures',
-  display: 'value',
+  display: 'zip_code',
   source: bestPictures
+});
+
+$('.typeahead').bind('typeahead:select', function(ev, suggestion) {
+  console.log('Selection: ');
+
+
 });
 
 </script>
