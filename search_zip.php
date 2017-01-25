@@ -13,4 +13,6 @@
   $pdo = connect();
   $spectacles = new Spectacles($pdo);
   echo empty($zip_code) ? "" : json_encode($spectacles->spectacles_zipcode($zip_code));
+
+  
 ?>

@@ -277,7 +277,7 @@
 
         // pour le débugage
         $this->sql = $sql;
-        echo ($sql);
+        /*echo ($sql);*/
 
 
         // premier enregistrement ensuite nextData()

@@ -18,6 +18,7 @@ $spectacles = new Spectacles($pdo);
 
 // $zip_code = $_REQUEST['zip_code'];
 
+
 $spectacles_result = $spectacles->spectacles_zipcode('25');
 
 print_r($spectacles_result);

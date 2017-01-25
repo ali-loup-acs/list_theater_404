@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title></title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
   <script src="typeahead.bundle.js"></script>
   <script src="bloodhound.js"></script>
   <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -79,38 +79,32 @@
 </head>
 <body>
 
-  <div id="the-basics">
+  <div id="remote">
     <label for="zip_code">Zip-code</label>
     <input class="typeahead" type="text" class="form-control typeahead" id="zip_code" placeholder="Test">
   </div>
 
+<script>
+// source de données déclarées
+var bestPictures = new Bloodhound({
+  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
+  queryTokenizer: Bloodhound.tokenizers.whitespace,
+  // si on veut précharger des trucs avant que la personne recherche, on utilise le prefetch
+  //prefetch: '../data/films/post_1960.json',
+  remote: {
+    url: 'search_zip.php?search=%QUERY',
+    wildcard: '%QUERY'
+  }
+});
+
+// a qui appliquer le typeahead et avec quelle source de données
+$('#remote .typeahead').typeahead(null, {
+  name: 'best-pictures',
+  display: 'value',
+  source: bestPictures
+});
+
+</script>
 </body>
 </html>
 
-<script type="text/javascript">
-
-  $(document).ready(function() {
-
-    var list_spectacles = new Bloodhound({
-      datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
-      queryTokenizer: Bloodhound.tokenizers.whitespace,
-      prefetch: '../', //url where sql request is
-      remote: {
-        url: '../', // url of the page containing user request
-        wildcard: '%QUERY'
-      }
-    });
-
-    $('#remote .typeahead').typeahead(null, {
-      name: 'list_spectacles',
-      display: 'value',
-      source: list_spectacles
-    });
-
-  });
-
-
-
-
-
-</script>
