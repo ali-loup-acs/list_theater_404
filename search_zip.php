@@ -13,9 +13,7 @@
   $pdo = connect();
   $spectacles = new Spectacles($pdo);
   $array_spectacles = $spectacles->spectacles_zipcode($zip_code);
-  foreach ($array_spectacles as $key => $value) {
-    $array_spectacles[$key]['url'] = 'audinetta.php';
-  }
+  
   echo empty($zip_code) ? "" : json_encode($array_spectacles);
 
 

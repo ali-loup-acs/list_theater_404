@@ -441,7 +441,7 @@
     */
     public function setUpdatefields($fieldsext) { $this->setFields = $fieldsext; }
 
-    // }}}
+    // }}}x²x
  
     //  {{{ setData()
     
