@@ -16,10 +16,10 @@ $spectacles = new Spectacles($pdo);
 
 // list spectacles for a given zipcode
 
-// $zip_code = $_REQUEST['zip_code'];
+$zip_code = $_REQUEST['zip_code'];
 
 
-$spectacles_result = $spectacles->spectacles_zipcode('25');
+$spectacles_result = $spectacles->find_spectacles_by_zipcode($zip_code);
 
 print_r($spectacles_result);
 
