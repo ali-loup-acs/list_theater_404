@@ -5,6 +5,9 @@ ini_set('display_errors', '1');
 require_once 'lib/Spectacles.class.php';
 require_once 'include/connect.php';
 
+require 'Mustache/Autoloader.php';
+Mustache_Autoloader::register();
+
 $pdo = connect();
 
   // nouvel objet spectacles -> input all spectacles in database
@@ -19,9 +22,24 @@ $spectacles = new Spectacles($pdo);
 $zip_code = $_REQUEST['zip_code'];
 
 
-$spectacles_result = $spectacles->find_spectacles_by_zipcode($zip_code);
+$spectacles_result['spectacles'] = $spectacles->find_spectacles_by_zipcode($zip_code);
 
+
+/*
 print_r($spectacles_result);
+*/
+
+
+$options =  array('extension' => '.html');
+
+$m = new Mustache_Engine(array(
+
+    'loader' => new Mustache_Loader_FilesystemLoader('assets/templates', $options)
+
+                        )     );
+
+//template used to generate elements 
+echo $m->render('dataProject2',$spectacles_result);
 
 
 

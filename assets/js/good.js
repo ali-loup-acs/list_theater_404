@@ -10,7 +10,7 @@ remote: {
 }
 });
 function zipcode_template(data){
-return '<p><a href=list_spectacles.php?zip_code="'+data.zip_code+'">'+data.zip_code+'</a></p>';
+return '<p><a href="list_spectacles.php?zip_code='+data.zip_code+'">'+data.zip_code+'</a></p>';
 }
 // a qui appliquer le typeahead et avec quelle source de données
 $('#remote .typeahead').typeahead(null, {
@@ -33,11 +33,11 @@ window.location.href = 'list_spectacles.php?zip_code='+suggestion['zip_code'];
 
 });*/
 
-// $('#remote .typeahead').keypress(function (e) {
-// if (e.which == 13) {
-//
-//   var selectedValue = $('#remote .typeahead')[1].value;
-//   window.location.href = 'list_spectacles.php?zip_code='+selectedValue;
-//
-// }
-// });
+$('#remote .typeahead').keypress(function (e) {
+if (e.which == 13) {
+
+  var selectedValue = $('#remote .typeahead')[1].value;
+  window.location.href = 'list_spectacles.php?zip_code='+selectedValue;
+
+}
+});
