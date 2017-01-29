@@ -42,3 +42,6 @@ if (e.which == 13) {
 }
 });
 
+function scrollWin() {
+    window.scrollBy(0, 100);
+}

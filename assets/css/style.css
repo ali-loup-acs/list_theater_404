@@ -1,143 +1,124 @@
-/*@font-face {
-  	font-family: 'Arabella';
-  	src: url('Arabella.eot');
-  	src: url('Arabella.eot?#iefix') format('embedded-opentype'),
-  		url('Arabella.woff') format('woff'),
-  		url('Arabella.ttf') format('truetype');
-  	font-weight: normal;
-  	font-style: normal;
-  }*/
-  .typeahead,
-  .tt-query,
-  .tt-hint {
-    width: 396px;
-    height: 30px;
-    padding: 8px 12px;
-    font-size: 24px;
-    line-height: 30px;
-    border: 2px solid #ccc;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    border-radius: 8px;
-    outline: none;
-  }
 
-  .typeahead {
-    background-color: #fff;
-  }
-
-  .typeahead:focus {
-    border: 2px solid #0097cf;
-  }
-
-  .tt-query {
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  }
-
-  .tt-hint {
-    color: #999
-  }
-
-  .tt-dropdown-menu {
-    width: 422px;
-    margin-top: 12px;
-    padding: 8px 0;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    border-radius: 8px;
-    -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
-    -moz-box-shadow: 0 5px 10px rgba(0,0,0,.2);
-    box-shadow: 0 5px 10px rgba(0,0,0,.2);
-  }
-
-  .tt-suggestion {
-    padding: 3px 20px;
-    font-size: 18px;
-    line-height: 24px;
-  }
-
-  .tt-suggestion.tt-cursor {
-    color: #fff;
-    background-color: #0097cf;
-
-  }
-
-  .tt-suggestion p {
-    margin: 0;
-  }
-  tt-highlight{
-    color:red;
-  }
-  header {
-    background-image: url(../img/rideauAccueil.jpg);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    overflow: hidden;
-    width: 100%;
-  	height: 100vh;
-  }
-  header .headcontent {
-    text-align: center;
-    color: #FFFFFF;
-    margin-top: 50vh; /* poussé de la moitié de hauteur de viewport */
-    transform: translateY(-50%); /* tiré de la moitié de sa propre hauteur */
+@font-face {
+  font-family: Merriweatheritalic;
+  src: url(../fonts/Merriweather-Italic.ttf);
 }
-header svg{
-  border: 1px solid green;
-  float:right;
-  margin-right: 4%;
-  margin-top: 14%;
-  fill: #FFFFFF;    /*mettre le svg en blanc */
-  width: 4%;
-  height: 4%;
+
+.typeahead,
+.tt-query,
+.tt-hint {
+  padding: 8px 12px;
+  font-size: 4vh;
+  /* text-align: center;*/
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  outline: none;
 }
-main{
-  background-image: url(../img/photoChelou1.jpeg);
+
+.typeahead {
+  background-color: #fff;
+}
+
+.typeahead:focus {
+  border: 2px solid #0097cf;
+}
+
+.tt-query {
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.tt-hint {
+  color: #999
+}
+
+.tt-dropdown-menu {
+  width: 422px;
+  margin-top: 12px;
+  padding: 8px 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+  -moz-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+  box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+
+.tt-suggestion {
+  padding: 3px 20px;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.tt-suggestion.tt-cursor {
+  color: #fff;
+  background-color: #0097cf;
+
+}
+
+.tt-suggestion p {
+  margin: 0;
+}
+
+
+tt-highlight{
+  color:red;
+}
+header {
+  background-image: url(../img/rideauAccueil.jpg);
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center;
   overflow: hidden;
   width: 100%;
   height: 100vh;
+
 }
+header .headcontent {
+  text-align: center;
+  color: #FFFFFF;
+  margin-top: 50vh; /* poussé de la moitié de hauteur de viewport */
+  transform: translateY(-50%); /* tiré de la moitié de sa propre hauteur */
+}
+
+h1{
+  font-family: Merriweatheritalic;
+  font-size: 8vh;
+}
+
+main{
+  background-image: url(../img/page1.jpg);
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+}
+
+
 main p{
   color: #FFFFFF;
   text-align: center;
-  width: 50%;
+  width: 70%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 4%;
-}
-.input-group{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 40vh;
+  font-family: Merriweatheritalic;
+  font-size: 3vh;
+} 
+
+label{
+  color: #FFFFFF;
+  font-family: Merriweatheritalic;
 }
 
-/*main form input{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 40%;
-  height:45px;
-  border-radius: 1%;
-  margin-top: 40vh; /* poussé de la moitié de hauteur de viewport */
-  transform: translateY(-50%); /* tiré de la moitié de sa propre hauteur */
+.input-group{
+  margin: auto;
 }
-main form label{
-  text-align: center;
-  color: #FFFFFF;
-}*/
-  /*nav.affix {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index:10;
-  }*/
+
