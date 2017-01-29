@@ -45,7 +45,7 @@ class Spectacles extends Dao // utilisation d'une classe d'accés aux données D
    $digits = strlen((string)$zipcode);
     $rest_digits = 5 - $digits;
     $query = "0";
-    echo $digits;
+    /*echo $digits;*/
     if ($digits<6) {// if less than five digits see REGEX function sql
       $query = "zip_code REGEXP '^$zipcode\[0-9\]{0,$rest_digits}$' GROUP BY zip_code";
     }
