@@ -5,9 +5,11 @@ include 'lib/Spectacles.class.php';
 include 'include/connect.php';
 $pdo = connect();
 $spec = new Spectacles($pdo);
-// $spec->insert_data_from_api(7);
-$date=$spec->last_update();
-echo($date);
+//initialization of the data base with spectacles
+//$spec->init();
+// update Spectacles
+$spec->update_spectacles();
+
 
 
 

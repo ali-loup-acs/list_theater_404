@@ -15,7 +15,7 @@ class Spectacles extends Dao // utilisation d'une classe d'accés aux données D
   public function __construct($pdo) //
   {
 
-    $this->table = 'spectacles';
+    $this->table = 'spectacles'; // be cautious
     parent::__construct($pdo);
     $this->aliastable = 'sp';
     $this->idtable = 'id';
@@ -59,7 +59,7 @@ class Spectacles extends Dao // utilisation d'une classe d'accés aux données D
   }
 
 
-  function insert_data_from_api($nb_day = 7){
+  private function insert_data_from_api($nb_day = 7){
     $api = new Api();
     $results = $api->find_next_spectacles($nb_day);
 
@@ -104,12 +104,64 @@ class Spectacles extends Dao // utilisation d'une classe d'accés aux données D
 
    return $results;
   }
-  function last_update()
+  public function last_date_update()
   {
     $this->setQuery('1');
-    $res = $this->findData('date_insert','DESC');
+    $res = $this->findData('date_insert','ASC');
     return $res[0]['date_insert'];
   }
 
+  /*
+  *@param $interval : interval time beetween last update in hour
+  *return true if the value is under the variable interval else
+  */
+  private function test_interval_last_date_update($interval=6){
+    $max_interval = $interval*60*60;
+    $now = time();
+    $last_modif = strtotime($this->last_date_update());
+    $current_interval = $now - $last_modif;
+    if ($current_interval>$max_interval) {
+      return false;
+    }
+    return true;
+
+  }
+
+  /*
+  *@param $days : spectacles until days
+  *initalization of the database
+  */
+  public function init($day = 7){
+    $this->insert_data_from_api($day);
+  }
+
+  /*
+  *@param $interval : interval in hour for the verification of data spectacles on current time
+  * update the database with new value from the api
+  */
+  public function update_spectacles($interval=6){
+    if (!$this->test_interval_last_date_update(3)) {
+      $this->reset();
+      $this->init();
+    }
+  }
+  /*
+  *
+  *truncate table
+  */
+
+  private function reset(){
+
+    $sql = 'TRUNCATE TABLE '.$this->table;
+
+    // statement
+    $sth = $this->db->prepare($sql);
+    $sth->execute();
+    if (!$sth) {
+      echo "\nPDO::errorInfo():\n";
+      print_r($this->db->errorInfo());
+      exit;
+    }
+  }
 }
 ?>
