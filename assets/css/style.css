@@ -14,6 +14,10 @@
   -moz-border-radius: 8px;
   border-radius: 8px;
   outline: none;
+  width: 396px;
+  height: 60px;
+  line-height: 30px;
+  border: 2px solid #ccc; 
 }
 
 .typeahead {
@@ -31,11 +35,11 @@
 }
 
 .tt-hint {
-  color: #999
+  color: #999;
 }
 
-.tt-dropdown-menu {
-  width: 422px;
+.tt-menu {
+  width: 396px;
   margin-top: 12px;
   padding: 8px 0;
   background-color: #fff;
@@ -50,21 +54,19 @@
 }
 
 .tt-suggestion {
-  padding: 3px 20px;
-  font-size: 18px;
-  line-height: 24px;
+ width: 396px;
 }
 
-.tt-suggestion.tt-cursor {
-  color: #fff;
+.tt-suggestion.tt-cursor, .tt-suggestion:hover {
   background-color: #0097cf;
 
 }
 
-.tt-suggestion p {
-  margin: 0;
-}
 
+.input-group{
+  margin: auto;
+  font-family: Merriweatheritalic;
+}
 
 tt-highlight{
   color:red;
@@ -77,8 +79,8 @@ header {
   overflow: hidden;
   width: 100%;
   height: 100vh;
-
 }
+
 header .headcontent {
   text-align: center;
   color: #FFFFFF;
@@ -101,7 +103,6 @@ main{
   height: 100vh;
 }
 
-
 main p{
   color: #FFFFFF;
   text-align: center;
@@ -118,7 +119,5 @@ label{
   font-family: Merriweatheritalic;
 }
 
-.input-group{
-  margin: auto;
-}
+
 

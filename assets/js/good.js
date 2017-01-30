@@ -10,7 +10,7 @@ remote: {
 }
 });
 function zipcode_template(data){
-return '<p><a href="list_spectacles.php?zip_code='+data.zip_code+'">'+data.zip_code+'</a></p>';
+return '<p><a href="list_spectacles.php?zip_code='+data.zip_code+' "style="text-decoration:none; color:black" >'+data.zip_code+'</a></p>';
 }
 // a qui appliquer le typeahead et avec quelle source de données
 $('#remote .typeahead').typeahead(null, {
