@@ -1,10 +1,24 @@
-header{
-  background-color: #1E1E1E;
-  padding-top: 1%;
+@font-face {
+  font-family: Merriweatheritalic;
+  src: url(../fonts/Merriweather-Italic.ttf);
 }
+
+
 header h1{
+  font-family: Merriweatheritalic;
   text-align: center;
   color: #FFFFFF;
+  padding-top: 1%;
+  margin:0;
+}
+
+main{
+  background-image: url(../img/rideauAccueil.jpg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow: hidden;
+  height: 80vh;
 }
 
 ul li{
@@ -20,19 +34,22 @@ ul li{
   margin-right: auto;
 }
 li h3, li p{
-
+  font-family: Merriweatheritalic;
   text-align: center;
 }
+
 ul{
   padding-left: 0%;
 }
+
 ul li a{
   text-decoration: none;
   color:#FFFFFF;
 }
+
 ul li a:hover{
   text-decoration: none;
-  color:#A09F9F;
+  color:#ffff00;
 }
 
 .pagination{
@@ -62,7 +79,37 @@ ul li a:hover{
 .p1 a.is-active{
   background-color: #2ecc71;
   border-radius: 100%;
-  color: #fff;
+  color: #ffff00;
 }
 
-    /*background-color: rgba(255,255,255,0.4)*/
+footer{
+  background-color: #000000;
+  padding-bottom: 3%;
+  color:#FFFFFF;
+  padding-top: 0.5%;
+  height:20vh;
+}
+.textFoot{
+  text-align: center;
+}
+.git{
+  padding-bottom: 0.3%;
+  height: 4%;
+  width: 4%;
+  fill: #FFFFFF;
+}
+.twitt{
+  height: 4.5%;
+  width: 4.5%;
+  fill: #FFFFFF;
+}
+
+.pagination a li{
+color:#FFFFFF;
+font-size: 3vh;
+}
+
+.pagination a li:hover{
+  color:#ffff00;
+}
+

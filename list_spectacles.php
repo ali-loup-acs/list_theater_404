@@ -22,8 +22,16 @@ $spectacles = new Spectacles($pdo);
 $zip_code = $_REQUEST['zip_code'];
 
 
+
 $spectacles_result['spectacles'] = $spectacles->find_spectacles_by_zipcode($zip_code);
 
+/*var_dump($spectacles_result['spectacles']["pages"]);
+
+foreach ($spectacles_result['spectacles']["pages"] as $key => $value) {
+  echo "Key: $key; Value: $value<br />\n";
+}
+
+die;*/
 
 /*
 print_r($spectacles_result);

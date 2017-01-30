@@ -14,7 +14,7 @@
   -moz-border-radius: 8px;
   border-radius: 8px;
   outline: none;
-  width: 396px;
+  width: 305px;
   height: 60px;
   line-height: 30px;
   border: 2px solid #ccc; 
@@ -39,7 +39,7 @@
 }
 
 .tt-menu {
-  width: 396px;
+  width: 310px;
   margin-top: 12px;
   padding: 8px 0;
   background-color: #fff;
@@ -54,7 +54,7 @@
 }
 
 .tt-suggestion {
- width: 396px;
+ width: 310px;
 }
 
 .tt-suggestion.tt-cursor, .tt-suggestion:hover {
@@ -74,7 +74,7 @@ tt-highlight{
 header {
   background-image: url(../img/rideauAccueil.jpg);
   background-size: 100% 100%;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat ;
   background-position: center;
   overflow: hidden;
   width: 100%;
@@ -91,6 +91,7 @@ header .headcontent {
 h1{
   font-family: Merriweatheritalic;
   font-size: 8vh;
+  margin-bottom: 10%;
 }
 
 main{
@@ -100,7 +101,7 @@ main{
   background-position: center;
   overflow: hidden;
   width: 100%;
-  height: 100vh;
+  height: 80vh;
 }
 
 main p{
@@ -112,12 +113,38 @@ main p{
   margin-top: 4%;
   font-family: Merriweatheritalic;
   font-size: 3vh;
+  margin-bottom: 10%;
 } 
 
 label{
   color: #FFFFFF;
   font-family: Merriweatheritalic;
 }
+
+footer{
+  background-color: #000000;
+  padding-bottom: 1%;
+  color:#FFFFFF;
+  padding-top: 0.5%;
+  height:20vh;
+}
+.textFoot{
+  text-align: center;
+}
+.git{
+  padding-bottom: 0.3%;
+  height: 4%;
+  width: 4%;
+  fill: #FFFFFF;
+}
+.twitt{
+  height: 4.5%;
+  width: 4.5%;
+  fill: #FFFFFF;
+}
+
+
+
 
 
 

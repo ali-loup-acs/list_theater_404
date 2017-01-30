@@ -239,8 +239,8 @@
 
         // statement
         $sth_total = $this->db->prepare($sql_total);
-/*
-         echo ($sql_total);*/
+
+        /* echo ($sql_total);*/
         $sth_total->execute();
 
 

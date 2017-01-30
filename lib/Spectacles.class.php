@@ -52,9 +52,18 @@ class Spectacles extends Dao // utilisation d'une classe d'accés aux données D
 
     $this->setQuery($query);
 
+    $this->limitData(6,0);
+
     $results = $this->findData(null,'ASC');
 
+ // How many spectacles in the table?
+   /* $results = $this->pagerData();*/
+
+   /* var_dump($results);*/
+    /*print_r($results);*/
+
    return $results;
+
   }
 
 
