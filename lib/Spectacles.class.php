@@ -30,6 +30,7 @@ class Spectacles extends Dao // utilisation d'une classe d'accés aux données D
      'date_start',
      'date_end',
      'poster',
+     'date_insert',
      );
 
 
@@ -99,6 +100,12 @@ class Spectacles extends Dao // utilisation d'une classe d'accés aux données D
 
    return $results;
   }
-}
+  function last_update()
+  {
+    $this->setQuery('1');
+    $res = $this->findData('date_insert','DESC');
+    return $res[0]['date_insert'];
+  }
 
+}
 ?>
