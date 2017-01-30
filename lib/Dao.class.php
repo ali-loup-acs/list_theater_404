@@ -14,7 +14,7 @@
  * @author     Yves Tannier <yves@grafactory.net>
  * @copyright  2006 Yves Tannier
  * @license    http://www.gnu.org/copyleft/lesser.html  LGPL License 2.1
- * @version    0.1.0 
+ * @version    0.1.0
  * @link       http://www.grafactory.net
  */
 
@@ -35,7 +35,7 @@
     * @access   private
     */
     var $aliastable;
-    
+
     /**
     * Champ index auto incrémenté et unique
     *
@@ -43,11 +43,11 @@
     * @access   private
     */
     var $idtable;
-    
+
     /**
     * Choix des champs
     *
-    * @var      array 
+    * @var      array
     * @access   private
     */
     var $selectfields;
@@ -59,7 +59,7 @@
     * @access   private
     */
     var $dsn;
- 
+
     /**
     * Champs de la table
     *
@@ -75,11 +75,11 @@
     * @access   private
     */
     var $typeObj;
-   
+
     //  {{{ __construct()
 
     /** Constructeur
-     * 
+     *
      * Le constructeur de la classe abstraite initie la connection
      *
      * @access private
@@ -104,13 +104,13 @@
         $this->table = PREFIX.$this->table;
 
     }
-   
+
     // }}}
 
     // {{{ loadData()
 
     /** Charger les informations dans l'instanciation
-     * 
+     *
      * Récupére les informations complétes relatives à un enregistrement
      *
      * @param       int         $id     Valeur du champ index pour l'enregistrement
@@ -130,7 +130,7 @@
     //  {{{ getData()
 
     /** Charger les informations
-     * 
+     *
      * Récupére les informations complétes relatives à un enregistrement
      *
      * @param       int         $id     Valeur du champ index pour l'enregistrement
@@ -140,13 +140,13 @@
      */
     public function getData($field_value,$other_field=null)
     {
-        
+
         if (!empty($other_field)) {
 		 	$field = $other_field;
 		 } else {
 		 	$field = $this->idtable;
 		 }
-                 
+
         $sql = 'SELECT  '.$this->getSelectfields().'
                 FROM '.$this->table.' '.$this->aliastable.'
                 WHERE '.$field.'='.$this->db->quote($field_value);
@@ -175,17 +175,17 @@
     }
 
     // }}}
-    
+
     /** Mettre les infos dans un tableau
-     * 
+     *
      * dans une boucle, mets chaque enregistrement dans un tableau
-     * 
+     *
      * @return      array       $r      Retourne un tableau de données
      * @access      public
      */
     public function toArray()
     {
-                 
+
         // le tableau des champs
         $fields = $this->fields;
 
@@ -205,7 +205,7 @@
     //  {{{ findData()
 
     /** Chercher les informations
-     * 
+     *
      * Recherche dans une table en fonction des critères donnés
      *
      * @param       int         $tri    Valeur pour orderby
@@ -264,7 +264,7 @@
 
 
         // requete 'normale'
-        $sql = 'SELECT DISTINCT '.$this->getSelectfields().' 
+        $sql = 'SELECT DISTINCT '.$this->getSelectfields().'
                 FROM '.$this->table.' '.$this->aliastable.' '.$sql;
 
         // tri
@@ -299,11 +299,11 @@
     }
 
     // }}}
-    
-    //  {{{ setQuery() 
+
+    //  {{{ setQuery()
 
     /** Requete spéciale
-     * 
+     *
      * Permet de définir une requête spéciale qui utilisé dans une méthode de 'recherche'
      *
      * @param       int         $query   Valeur de la requete
@@ -311,17 +311,17 @@
      * @see         findData
      * @access      public
      */
-    public function setQuery($query) { 
-        $this->queryString = $query; 
+    public function setQuery($query) {
+        $this->queryString = $query;
     }
-         
+
     // }}}
-    
+
     //  {{{ nextData()
-    
+
     /** Passer à l'enregistrement suivant
-    * 
-    * Permet de passe à l'enregistrement suivant après 
+    *
+    * Permet de passe à l'enregistrement suivant après
     * la méthode finData()
     *
     * Exemples dans les classes filles
@@ -332,14 +332,14 @@
     * @return   array
     */
     public function nextData() { $this->r = $this->list->fetch(PDO::FETCH_LAZY); }
-    
+
     // }}}
-    
+
     //  {{{ hasData()
-    
+
     /** Vérifie la fin de parcours du tableau
-    * 
-    * Avec l'utilisation des méthodes findData() et nextData() 
+    *
+    * Avec l'utilisation des méthodes findData() et nextData()
     * permet de vérifier qu'on a parcouru tous les enregistrements
     *
     * Exemples à préciser
@@ -354,9 +354,9 @@
     // }}}
 
     //  {{{ getSelectfields()
-    
+
     /** Passe les champs souhaités sous forme de chaine
-    * 
+    *
     * Récupére sous forme de string les champs qu'on souhaite pour une
     * requête. Si selectfields n'est pas précisé, on prendra tous les champs
     * comme pour un SELECT étoile.
@@ -366,14 +366,14 @@
     */
     public function getSelectfields()
     {
-        
+
         // creation de la variable
         $field_string = '';
-        
+
         if(empty($this->selectfields)) {
             $this->selectfields = $this->fields;
         }
-        
+
         for($i=0;$i<sizeof($this->selectfields)-1;$i++) {
             $field_string .= $this->aliastable.'.'.$this->selectfields[$i].', ';
         }
@@ -381,17 +381,17 @@
         if(!empty($this->selectfields)){
             $field_string .= $this->aliastable.'.'.$this->selectfields[$i];
         }
-        
+
         return $field_string;
-            
+
     }
 
     // }}}
-    
+
     //  {{{ selectFields()
-    
+
     /** Récupére les champs souhaités
-    * 
+    *
     * Récupére sous forme de array les champs qu'ont souhaite pour une
     * requête. Si selectfields n'est pas précisé, on prendra tous les champs
     * comme pour un SELECT étoile.
@@ -404,19 +404,19 @@
     */
     public function selectFields($fieldsext='')
     {
-        
+
         if(!empty($fieldsext)) {
-            $this->selectfields = $fieldsext; 
+            $this->selectfields = $fieldsext;
         }
 
     }
 
     // }}}
-    
+
     //  {{{ getField()
-    
+
     /** Récupérer la valeur d'un champ
-    * 
+    *
     * Permet de récupérer la valeur d'un champ dans le tableau
     *
     * @see      findData()
@@ -425,13 +425,13 @@
     */
 
     public function getField($field) { return $this->r[$field]; }
-    
+
     // }}}
 
     //  {{{ setUpdatefields()
-    
-    /** Précise les champs à updater ou insérer 
-    * 
+
+    /** Précise les champs à updater ou insérer
+    *
     * Précise dans un tableau les champs à updater ou à insérer. Le nom du champ
     * et sa valeur nécessaire à la classe DB
     *
@@ -442,9 +442,9 @@
     public function setUpdatefields($fieldsext) { $this->setFields = $fieldsext; }
 
     // }}}x²x
- 
+
     //  {{{ setData()
-    
+
     /** Met à jour globalement les informations
      *
      * Mettre à jour toutes les champs d'un enregistrement
@@ -463,14 +463,14 @@
         }
 
         // si $id existe on update sinon insert
-        if (!empty($id)) { 
+        if (!empty($id)) {
             $sql = 'UPDATE '.$this->table.' SET '.join($update_fields, ',').' WHERE '.$this->idtable.'='.$this->db->quote($id);
         } else {
             $sql = 'INSERT INTO '.$this->table.' ('.join($names_fields, ',').') VALUES ('.join($values_fields, ',').')';
         }
         $stmt = $this->db->prepare($sql);
         $stmt->execute();
-			
+
         // return last_insert_id si demande
         if ($last && $id=='') {
             return $this->lastData();
@@ -479,11 +479,11 @@
         }
 
     }
-    
+
     // }}}
-    
+
     //  {{{ deleteData()
-    
+
     /** Supprime un enregistrement
      *
      * Supprime définitivement un enregistrement
@@ -497,17 +497,17 @@
      {
 
         $this->res = $this->db->exec('DELETE FROM '.$this->table.' WHERE '.$this->idtable.'='.$this->setQuote($id));
-        
+
      }
-    
+
     // }}}
 
     //  {{{ limitData()
 
     /** Limiter le nombre de résultat
-     * 
+     *
      * On n'affiche pas tout les résultats d'un coup. Affichage par par page
-     * 
+     *
      * @param   int       $limit        Nombre d'enregistrement par page
      * @param   int       $from         De quel enregistrement part-on
      * @see     findData()
@@ -516,21 +516,21 @@
      */
     public function limitData($limit=20, $from=0)
     {
-        
+
         $this->limit = $limit;
         $this->from = $from;
 
     }
-    
+
     // }}}
 
     //  {{{ pagerData()
 
     /** Affichage page par page
-     * 
+     *
      * Permet de gèrer l'affichage page par page
      * page suivante / page précédente, numéro de page ect...
-     * 
+     *
      * @param   int       $maxpages     Nombre de page à afficher (google like)
      * @see     findData()
      * @see     limitData()
@@ -611,16 +611,16 @@
 
         return $data;
 
-        
+
     }
 
-    
+
     // }}}
 
     //  {{{ countData()
-    
+
     /** Compte le nombre de résultat
-    * 
+    *
     * Compte le nombre de résultat d'une requete
     *
     * @access   public
@@ -629,20 +629,20 @@
     public function countData() { return $this->list->numRows(); }
 
     // }}}
-	
+
     //  {{{ lastData()
-    
+
     /** Récupére le dernier enregistrement
-    * 
+    *
     * Après un insert, récupére l'id du dernier enregistrement
     *
     * @access   public
     * @return   int
     */
     public function lastData()
-    { 
+    {
 
-        $sql = 'SELECT LAST_INSERT_ID() as newid 
+        $sql = 'SELECT LAST_INSERT_ID() as newid
                 FROM '.$this->table;
 
         // statement
@@ -673,9 +673,9 @@
     // }}}
 
     //  {{{ getToArray()
-    
+
     /** Place le résultat dans un array
-    * 
+    *
     *
     * @access   public
     * @return   array
@@ -684,6 +684,6 @@
     public function getToArray($id) { return $this->getData($id); }
 
     // }}}
-    
+
 }
 ?>
