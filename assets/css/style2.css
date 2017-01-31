@@ -14,11 +14,13 @@ header h1{
 
 main{
   background-image: url(../img/rideauAccueilFiltre.jpg);
-  background-size: 100% 100%;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   overflow: hidden;
-  height: 80vh;
+  width: 100%;
+  height: 100vh;
+  padding-bottom: 100px;
 }
 
 ul li{
@@ -93,10 +95,22 @@ footer{
   padding-bottom: 3%;
   color:#FFFFFF;
   padding-top: 0.5%;
-  height:20vh;
+  height:100px;
+  position:absolute;
+  bottom: 0%;
+  width: 100%;
 }
 .textFoot{
   text-align: center;
+  width: 250px;
+  float: left;
+}
+.test{
+  padding-top: 1%;
+  padding-bottom: %;
+  margin: auto;
+  width: 500px;
+  height: 70px;
 }
 .icons{
   display: inline;
@@ -123,4 +137,7 @@ font-size: 3vh;
 .pagination a li:hover{
   color:#ffff00;
 }
-
+#wrap{
+  min-height: 100%;
+  position:relative;
+}

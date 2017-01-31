@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mar 24 Janvier 2017 à 10:59
+-- Généré le :  Mar 31 Janvier 2017 à 12:07
 -- Version du serveur :  5.6.28-0ubuntu0.15.04.1
 -- Version de PHP :  5.6.4-4ubuntu6.4
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de données :  `audef`
+-- Base de données :  `alij`
 --
 
 -- --------------------------------------------------------
@@ -36,7 +36,8 @@ CREATE TABLE IF NOT EXISTS `spectacles` (
   `info_place` varchar(23) DEFAULT NULL,
   `date_start` date DEFAULT NULL,
   `date_end` date DEFAULT NULL,
-  `poster` varchar(80) DEFAULT NULL
+  `poster` varchar(80) DEFAULT NULL,
+  `date_insert` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
