@@ -5,25 +5,81 @@
 require_once 'lib/Spectacles.class.php';
 require_once 'include/connect.php';
 require 'Mustache/Autoloader.php';
+class IteratorPresenter implements IteratorAggregate
+{
+    private $values;
+
+    public function __construct($values)
+    {
+        if (!is_array($values) && !$values instanceof Traversable) {
+            throw new InvalidArgumentException('IteratorPresenter requires an array or Traversable object');
+        }
+
+        $this->values = $values;
+    }
+
+    public function getIterator()
+    {
+        $values = array();
+        foreach ($this->values as $key => $val) {
+            $values[$key] = array(
+                'key'   => $key,
+                'value' => $val,
+                'first' => false,
+                'last'  => false,
+            );
+        }
+
+        $keys = array_keys($values);
+
+        if (!empty($keys)) {
+            $values[reset($keys)]['first'] = true;
+            $values[end($keys)]['last']    = true;
+        }
+
+        return new ArrayIterator($values);
+    }
+}
 Mustache_Autoloader::register();
 
-  if(isset($_REQUEST['zip_code'])){
+  if(isset($_REQUEST['zip_code'])&&isset($_REQUEST['page'])){
+    $current_page = $_REQUEST['page'];
+    $zip_code = $_REQUEST['zip_code'];
     $pdo = connect();
     $spectacles = new Spectacles($pdo);
-    if (false) {  // condition to update the data base
-      $spectacles_result = $spectacles->insert_data_from_api(3);
-  }
 
-    $zip_code = $_REQUEST['zip_code'];
-    $spectacles_result['spectacles'] = $spectacles->find_spectacles_by_zipcode($zip_code);
+    $spectacles_result['spectacles'] = $spectacles->find_spectacles_by_zipcode($zip_code, $current_page);
+    /*print_r($spectacles_result);*/
 
-/*var_dump($spectacles_result['spectacles']["pages"]);
+    $spectacles_result['pages'] = new IteratorPresenter($spectacles->pagerData()['pages']);
 
-foreach ($spectacles_result['spectacles']["pages"] as $key => $value) {
+    print_r($spectacles_result);
+    print_r($spectacles->pagerData());
+
+ // How many spectacles in the table?
+/*    foreach ($pager as $key => $value) {
+
+      foreach ($pager[0][$key] as $key => $value) {
+        echo "Key: $key; Value: $value<br />\n";
+      }
+
+
+      
+    }
+*/
+
+
+    
+
+/*    for ($i=1; $i <=count($spectacles_result['spectacles']['pages']) ; $i++) { 
+      $spectacles_result['spectacles']['pages'][->index = $spectacles_result['spectacles']['pages'][$i];
+    }*/
+
+/*foreach ($spectacles_result['spectacles']["pages"] as $key => $value) {
   echo "Key: $key; Value: $value<br />\n";
-}
+}*/
 
-die;*/
+/*die;*/
 
 /*
 print_r($spectacles_result);

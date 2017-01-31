@@ -41,29 +41,23 @@ class Spectacles extends Dao // utilisation d'une classe d'accés aux données D
 
 
 
-  function find_spectacles_by_zipcode($zipcode){ //recupere des spectacles
+  function find_spectacles_by_zipcode($zipcode, $from=0, $limit=6){ //recupere des spectacles
 
    $digits = strlen((string)$zipcode);
-    $rest_digits = 5 - $digits;
-    $query = "0";
-    /*echo $digits;*/
+   $rest_digits = 5 - $digits;
+   $query = "0";
+   /*echo $digits;*/
     if ($digits<6) {// if less than five digits see REGEX function sql
       $query = "zip_code REGEXP '^$zipcode\[0-9\]{0,$rest_digits}$' GROUP BY zip_code";
     }
 
     $this->setQuery($query);
 
-    $this->limitData(6,0);
+    $this->limitData($limit,$from);
 
-    $results = $this->findData(null,'ASC');
+    $data = $this->findData(null,'ASC');
 
- // How many spectacles in the table?
-   /* $results = $this->pagerData();*/
-
-   /* var_dump($results);*/
-    /*print_r($results);*/
-
-   return $results;
+    return $data;
 
   }
 
@@ -111,7 +105,7 @@ class Spectacles extends Dao // utilisation d'une classe d'accés aux données D
 
     $results = $this->findData('zip_code', 'ASC');
 
-   return $results;
+    return $results;
   }
   public function last_date_update()
   {

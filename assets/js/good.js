@@ -10,7 +10,7 @@ remote: {
 }
 });
 function zipcode_template(data){
-return '<p><a href="list_spectacles.php?zip_code='+data.zip_code+' "style="text-decoration:none; color:black" >'+data.zip_code+'</a></p>';
+return '<p><a href="list_spectacles.php?page=0&zip_code='+data.zip_code+' "style="text-decoration:none; color:black" >'+data.zip_code+'</a></p>';
 }
 // a qui appliquer le typeahead et avec quelle source de données
 $('#remote .typeahead').typeahead(null, {
@@ -20,7 +20,7 @@ source: bestPictures,
 templates: {
   /*    header: '<h3 class="search-subtitle"><i class="fa fa-book"></i> Livres</h3>',*/
   /*footer: function(infos) { return moreResults(infos,'books'); },*/
-  empty: '<p class="search-no-result">Aucun spectacles trouvés.</p>',
+  empty: '<p class="search-no-result" "style="text-decoration:none; color:black" "col">Aucun spectacles trouvés.</p>',
   suggestion: function (data) { return zipcode_template(data) }
 }
 });

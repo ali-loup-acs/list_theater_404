@@ -13,7 +13,7 @@ header h1{
 }
 
 main{
-  background-image: url(../img/rideauAccueil.jpg);
+  background-image: url(../img/rideauAccueilFiltre.jpg);
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center;
@@ -81,7 +81,13 @@ ul li a:hover{
   border-radius: 100%;
   color: #ffff00;
 }
-
+.test{
+  padding-top: 1%;
+  padding-bottom: %;
+  margin: auto;
+  width: 500px;
+  height: 70px;
+}
 footer{
   background-color: #000000;
   padding-bottom: 3%;
@@ -92,15 +98,20 @@ footer{
 .textFoot{
   text-align: center;
 }
+.icons{
+  display: inline;
+  width: 150px;
+  float:right;
+}
 .git{
   padding-bottom: 0.3%;
-  height: 4%;
-  width: 4%;
+  height: 30%;
+  width: 30%;
   fill: #FFFFFF;
 }
 .twitt{
-  height: 4.5%;
-  width: 4.5%;
+  height: 33%;
+  width: 33%;
   fill: #FFFFFF;
 }
 
