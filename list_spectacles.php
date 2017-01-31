@@ -42,7 +42,7 @@ class IteratorPresenter implements IteratorAggregate
 }
 Mustache_Autoloader::register();
 
-  if(isset($_REQUEST['zip_code'])&&isset($_REQUEST['page'])){
+  if(isset($_REQUEST['zip_code'])||isset($_REQUEST['page'])){
     $current_page = $_REQUEST['page'];
     $zip_code = $_REQUEST['zip_code'];
     $pdo = connect();
@@ -53,8 +53,8 @@ Mustache_Autoloader::register();
 
     $spectacles_result['pages'] = new IteratorPresenter($spectacles->pagerData()['pages']);
 
-    print_r($spectacles_result);
-    print_r($spectacles->pagerData());
+    // print_r($spectacles_result);
+    // print_r($spectacles->pagerData());
 
  // How many spectacles in the table?
 /*    foreach ($pager as $key => $value) {
@@ -64,14 +64,14 @@ Mustache_Autoloader::register();
       }
 
 
-      
+
     }
 */
 
 
-    
 
-/*    for ($i=1; $i <=count($spectacles_result['spectacles']['pages']) ; $i++) { 
+
+/*    for ($i=1; $i <=count($spectacles_result['spectacles']['pages']) ; $i++) {
       $spectacles_result['spectacles']['pages'][->index = $spectacles_result['spectacles']['pages'][$i];
     }*/
 

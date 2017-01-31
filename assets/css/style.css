@@ -3,6 +3,10 @@
   font-family: Merriweatheritalic;
   src: url(../fonts/Merriweather-Italic.ttf);
 }
+@font-face {
+  font-family: "black_jar";
+  src: url(../fonts/BLACKJAR.TTF);
+}
 
 .typeahead,
 .tt-query,
@@ -89,7 +93,7 @@ header .headcontent {
 }
 
 h1{
-  font-family: Merriweatheritalic;
+  font-family: "black_jar";
   font-size: 8vh;
   margin-bottom: 10%;
 }
