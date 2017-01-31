@@ -5,13 +5,10 @@ include 'lib/Spectacles.class.php';
 include 'include/connect.php';
 $pdo = connect();
 $spec = new Spectacles($pdo);
+
 //initialization of the data base with spectacles
-//$spec->init();
 // update Spectacles
 $spec->update_spectacles();
-
-
-
 
 Mustache_Autoloader::register();
 
