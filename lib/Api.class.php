@@ -1,4 +1,6 @@
 <?php
+// Get info from API in Json format 
+
   class Api{
 
     private $entry_point = 'http://www.theatre-contemporain.net/'; // Point d'entrée
@@ -29,6 +31,8 @@
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_HTTPHEADER => array('Content-type: application/json'),
       );
+
+      
       curl_setopt_array($this->api_call, $api_call_options);
     }
 
@@ -47,9 +51,11 @@
       @arr : format array or json
       return an array with spectacles during @days day
     */
+
+    // creation of table successively sent to database
     public function find_next_spectacles($days, $arr=true ){
 
-      $this->set($days);
+      $this->set($days); // 
       if($arr){
         $infos_spectacles = json_decode($this->exec());
         $spectacles= array();

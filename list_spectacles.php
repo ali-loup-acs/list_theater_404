@@ -5,6 +5,10 @@
 require_once 'lib/Spectacles.class.php';
 require_once 'include/connect.php';
 require 'Mustache/Autoloader.php';
+
+// here we deal with the vue part of the project: for pagination and spectacle details
+
+// class to transform the table data with numerical indexes into exploitable ressources for Mustache
 class IteratorPresenter implements IteratorAggregate
 {
     private $values;

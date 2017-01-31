@@ -15,7 +15,7 @@ class Spectacles extends Dao // utilisation d'une classe d'accés aux données D
   public function __construct($pdo) //
   {
 
-    $this->table = 'spectacles'; // be cautious
+    $this->table = 'spectacles'; // 
     parent::__construct($pdo);
     $this->aliastable = 'sp';
     $this->idtable = 'id';
@@ -35,14 +35,12 @@ class Spectacles extends Dao // utilisation d'une classe d'accés aux données D
 
 
   }
-  function get_spectacle_by_name(){ //recupere un spectacle
 
-  }
-
-
+  // verify if the length of the input is up to 5 letters long
 
   function find_spectacles_by_zipcode($zipcode, $from=0, $limit=6){ //recupere des spectacles
 
+    // get size of parameter
    $digits = strlen((string)$zipcode);
    $rest_digits = 5 - $digits;
    $query = "0";
@@ -51,6 +49,7 @@ class Spectacles extends Dao // utilisation d'une classe d'accés aux données D
       $query = "zip_code REGEXP '^$zipcode\[0-9\]{0,$rest_digits}$' GROUP BY zip_code";
     }
 
+    // for the followings, check class Dao
     $this->setQuery($query);
 
     $this->limitData($limit,$from);
@@ -61,6 +60,7 @@ class Spectacles extends Dao // utilisation d'une classe d'accés aux données D
 
   }
 
+// insert data for each spectale into the database
 
   private function insert_data_from_api($nb_day = 7){
     $api = new Api();
@@ -69,6 +69,7 @@ class Spectacles extends Dao // utilisation d'une classe d'accés aux données D
     foreach ($results as $key => $value) {
 
     // this -> element courant à la classe
+      // see Dao
 
       $this->setUpdateFields(array(
 
@@ -82,7 +83,6 @@ class Spectacles extends Dao // utilisation d'une classe d'accés aux données D
        'date_end' => $value['end'],
        'poster' => $value['poster'],
 
-
        ));
 
       $this->setData();
@@ -93,6 +93,7 @@ class Spectacles extends Dao // utilisation d'une classe d'accés aux données D
   }
 
   // return an array with zipcodes of all spectacles
+
   function spectacles_zipcode($zip){
     $digits = strlen((string)$zip);
     $rest_digits = 5 - $digits;
@@ -111,7 +112,11 @@ class Spectacles extends Dao // utilisation d'une classe d'accés aux données D
   {
     $this->setQuery('1');
     $res = $this->findData('date_insert','ASC');
-    return $res[0]['date_insert'];
+
+    // function ternaire to replace if function
+
+    // send date of last modif in database
+    return isset($res[0]) ? $res[0]['date_insert'] : "0000-00-00 00:00:00";
   }
 
   /*
@@ -121,6 +126,7 @@ class Spectacles extends Dao // utilisation d'une classe d'accés aux données D
   private function test_interval_last_date_update($interval=6){
     $max_interval = $interval*60*60;
     $now = time();
+    // transform array in datatime because of the timestamp property of date
     $last_modif = strtotime($this->last_date_update());
     $current_interval = $now - $last_modif;
     if ($current_interval>$max_interval) {
@@ -142,6 +148,8 @@ class Spectacles extends Dao // utilisation d'une classe d'accés aux données D
   *@param $interval : interval in hour for the verification of data spectacles on current time
   * update the database with new value from the api
   */
+
+  //test if last update has been processed in a time scale of more than time given here 3 hours and 6 hours per default
   public function update_spectacles($interval=6){
     if (!$this->test_interval_last_date_update(3)) {
       $this->reset();
@@ -153,6 +161,7 @@ class Spectacles extends Dao // utilisation d'une classe d'accés aux données D
   *truncate table
   */
 
+// empty table
   private function reset(){
 
     $sql = 'TRUNCATE TABLE '.$this->table;
