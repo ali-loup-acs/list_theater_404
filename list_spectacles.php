@@ -95,7 +95,6 @@ print_r($spectacles_result);
       'loader' => new Mustache_Loader_FilesystemLoader('assets/templates', $options)
 
       )     );
-
       //template used to generate elements
       echo $m->render('dataProject2',$spectacles_result);
   }

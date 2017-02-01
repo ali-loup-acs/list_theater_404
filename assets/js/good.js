@@ -18,10 +18,12 @@ name: 'best-pictures',
 display: 'zip_code',
 source: bestPictures,
 templates: {
-  /*    header: '<h3 class="search-subtitle"><i class="fa fa-book"></i> Livres</h3>',*/
-  /*footer: function(infos) { return moreResults(infos,'books'); },*/
-  empty: '<p class="search-no-result">Aucun spectacles trouvés.</p>',
-  suggestion: function (data) { return zipcode_template(data) }
+  empty: ['<div class="empty-message">',
+        'Aucun Spectacle trouvé.',
+         '</div>'].join('\n'),
+  suggestion: function (data) {
+    return zipcode_template(data);
+  }
 }
 });
 
