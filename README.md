@@ -6,7 +6,7 @@ Main use of project:
 This application is a search engine to look for contemporary shows/theatre in the area specified by the user (France only for the moment) and based on the following open source API:
 																
 
-																http://www.ressources-theatre.net/doc/api/
+							http://www.ressources-theatre.net/doc/api/
 
 How to use it?
 

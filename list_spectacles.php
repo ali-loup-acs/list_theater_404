@@ -46,13 +46,13 @@ class IteratorPresenter implements IteratorAggregate
 }
 Mustache_Autoloader::register();
 
-  if(isset($_REQUEST['zip_code'])||isset($_REQUEST['page'])){
-    $current_page = $_REQUEST['page'];
+  if(isset($_REQUEST['zip_code'])/*&&isset($_REQUEST['page'])*/){
+    /*$current_page = $_REQUEST['page'];*/
     $zip_code = $_REQUEST['zip_code'];
     $pdo = connect();
     $spectacles = new Spectacles($pdo);
 
-    $spectacles_result['spectacles'] = $spectacles->find_spectacles_by_zipcode($zip_code, $current_page);
+    $spectacles_result['spectacles'] = $spectacles->find_spectacles_by_zipcode($zip_code/*$current_page*/);
     /*print_r($spectacles_result);*/
 
     $spectacles_result['pages'] = new IteratorPresenter($spectacles->pagerData()['pages']);
