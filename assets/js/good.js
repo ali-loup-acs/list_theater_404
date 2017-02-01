@@ -5,7 +5,7 @@ queryTokenizer: Bloodhound.tokenizers.whitespace,
 // si on veut précharger des trucs avant que la personne recherche, on utilise le prefetch
 //prefetch: '../data/films/post_1960.json',
 remote: {
-  url: 'search_zip.php?search=%QUERY',
+  url: 'search_zip.php?zip_code=%QUERY',
   wildcard: '%QUERY'
 }
 });

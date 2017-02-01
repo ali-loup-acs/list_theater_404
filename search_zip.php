@@ -1,20 +1,16 @@
 <?php
-  ini_set('display_errors', '1');
-  include('lib/Spectacles.class.php');
-  require_once 'include/connect.php';
+header('Content-type: application/json');
 
-  $zip_code = ""; // zip code search
+require 'include/require.php';
 
-  if(isset($_REQUEST['search'])&&!empty($_REQUEST['search'])){
+$list_spectacles = array();
+$zip_code = ""; // zip code search
 
-    $zip_code = $_REQUEST['search'];
-  }
-  header('Content-type: application/json');
-  $pdo = connect();
-  $spectacles = new Spectacles($pdo);
-  $array_spectacles = $spectacles->spectacles_zipcode($zip_code);
-  
-  echo empty($zip_code) ? "" : json_encode($array_spectacles);
+if(isset($_REQUEST['zip_code'])&&!empty($_REQUEST['zip_code'])){
 
-
+  $zip_code = $_REQUEST['zip_code'];
+  $spectacles = new Spectacles();
+  $list_spectacles = $spectacles->spectacles_zip_code($zip_code);
+}
+echo json_encode($list_spectacles);
 ?>

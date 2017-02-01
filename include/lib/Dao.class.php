@@ -84,10 +84,23 @@
      *
      * @access private
      */
-    public function __construct($pdo)
+    public function __construct($pdo=null)
     {
         // chaine de connexion
-        $this->db = $pdo;
+        if (empty($pdo)) {
+          try {
+            $this->db = new PDO('mysql:host='.HOSTNAME.';dbname='.DBNAME,USERNAME,PASSWORD);
+
+          }
+          catch (PDOException $e)
+          {
+            print "Erreur !: " . $e->getMessage() . "<br/>";
+            die();
+          }
+        }
+        else {
+          $this->db = $pdo;
+        }
 
         $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -225,7 +238,7 @@
         }
 
         // déclaration de la variable
-        $sql = ' WHERE ';
+        $sql = ' WHERE 1';
 
         if (!empty($this->queryString)) {
             $sql .= $this->queryString;
@@ -277,7 +290,7 @@
 
         // pour le débugage
         $this->sql = $sql;
-        /*echo ($sql);*/
+        echo ($sql);
 
 
         // premier enregistrement ensuite nextData()
@@ -547,6 +560,7 @@
         // Nombre total de page
         $pages = ceil($this->total/$this->limit);
         $data['numpages'] = $pages;
+        $data['current'] = null;
 
         // première page / dernière page
         $data['firstpage'] = 1;

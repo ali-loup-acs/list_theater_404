@@ -1,4 +1,5 @@
 .ftpconfig
+.ftpignore
 .init.php
 Gruntfile.js
 package.json

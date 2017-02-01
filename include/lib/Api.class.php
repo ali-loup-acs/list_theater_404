@@ -1,5 +1,5 @@
 <?php
-// Get info from API in Json format 
+// Get info from API in Json format
 
   class Api{
 
@@ -32,7 +32,7 @@
         CURLOPT_HTTPHEADER => array('Content-type: application/json'),
       );
 
-      
+
       curl_setopt_array($this->api_call, $api_call_options);
     }
 
@@ -55,14 +55,15 @@
     // creation of table successively sent to database
     public function find_next_spectacles($days, $arr=true ){
 
-      $this->set($days); // 
+      $this->set($days); //
       if($arr){
         $infos_spectacles = json_decode($this->exec());
         $spectacles= array();
+
         foreach ($infos_spectacles as $key => $value) {
           $spectacles[$key]['title'] = $infos_spectacles[$key]->title;
           $spectacles[$key]['object'] = $infos_spectacles[$key]->object;
-          $spectacles[$key]['zipcode'] = $infos_spectacles[$key]->near_dates->zipcode;
+          $spectacles[$key]['zip_code'] = $infos_spectacles[$key]->near_dates->zipcode;
           $spectacles[$key]['city'] = $infos_spectacles[$key]->near_dates->city;
           $spectacles[$key]['permanent_url_show'] = $infos_spectacles[$key]->permanent_url;
           $spectacles[$key]['permanent_url_place'] = $infos_spectacles[$key]->near_dates->place->permanent_url;
