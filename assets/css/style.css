@@ -7,7 +7,10 @@
   font-family: "black_jar";
   src: url(../fonts/BLACKJAR.TTF);
 }
-
+#remote .empty-message{
+  color: black;
+  text-align: center;
+}
 .typeahead,
 .tt-query,
 .tt-hint {
