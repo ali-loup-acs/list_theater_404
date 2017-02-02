@@ -8,4 +8,3 @@ $spec = new Spectacles();
 $spec->update_spectacles();
 
 render_template('index');
-?>

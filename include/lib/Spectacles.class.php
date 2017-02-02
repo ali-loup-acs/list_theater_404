@@ -41,7 +41,7 @@ public function __construct($pdo=null) //
 
 public function spectacles_zip_code($zip_code){
 
-  $query = "zip_code REGEXP '^$zip_code' GROUP BY zip_code";
+  $query = 'AND zip_code REGEXP \'^'.$zip_code.'\' GROUP BY zip_code';
   $this->setQuery($query);
   $results = $this->findData('zip_code', 'ASC');
 
@@ -58,7 +58,7 @@ public function spectacles_zip_code($zip_code){
 public function find_spectacles_by_zip_code($zip_code=null, $limit=6, $offset=0){ //recupere des spectacles
 
   if (!empty($zip_code)) {
-    $query = 'zip_code REGEXP \'^'.$zip_code.'\' GROUP BY zip_code';
+    $query = 'AND zip_code REGEXP \'^'.$zip_code.'\' GROUP BY zip_code';
   }
 
   // for the followings, check class Dao
@@ -71,7 +71,7 @@ public function find_spectacles_by_zip_code($zip_code=null, $limit=6, $offset=0)
 }
 
 /*
-*@param $nb_days scale time in day for get the spectacles 
+*@param $nb_days scale time in day for get the spectacles
 *insert data for each spectale into the database using class Api
 *@see class Api
 */

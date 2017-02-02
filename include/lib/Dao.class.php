@@ -238,7 +238,7 @@
         }
 
         // déclaration de la variable
-        $sql = ' WHERE 1';
+        $sql = ' WHERE  1 ';
 
         if (!empty($this->queryString)) {
             $sql .= $this->queryString;
@@ -252,8 +252,7 @@
 
         // statement
         $sth_total = $this->db->prepare($sql_total);
-
-        /* echo ($sql_total);*/
+        // echo ($sql_total);
         $sth_total->execute();
 
 
@@ -290,7 +289,7 @@
 
         // pour le débugage
         $this->sql = $sql;
-        echo ($sql);
+        // echo ($sql);
 
 
         // premier enregistrement ensuite nextData()
