@@ -1,110 +1,106 @@
-<!DOCTYPE html>
 <html>
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="description" content="Projet Data">
-  <meta name="author" content="Ali, Aude, Jules et Pauline">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-  <link rel="stylesheet" type="text/css" href="assets/css/style2.css">
-  <title>Projet Data</title>
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<meta charset="utf-8" />
+	<meta name="description" content="Projet Data">
+	<meta name="author" content="Aude, Pauline, Ali et Jules">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>HalloTheatre</title>
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 </head>
 
 <body>
-
- <script>
-
-  /*  console.log($('body')[0].innerTexxt);*/
-
-/*  $(('body')[0].innerText).on("#modal-item",'.modal', function (e) {
-    $(e.target).removeData("modal").find(".modal-content").empty();
-});
-*/
-</script>
-<div id="wrap">
-  <main>
-    <div class="container">
-
-      <ul>
-        {{#spectacles}}
-        <li class="col-md-4">
-          <div class="boutonModal">
-            <a href="#" data-toggle="modal" data-target="#mySpectacle{{id}}">
-              <h3>{{title}}</h3>
-              <p>Date de commencement: {{date_start}}</p>
-              <p>Date de fin: {{date_end}}</p>
-            </a>
-            <div class="modal fade" id="mySpectacle{{id}}" role="dialog">
-              <div class="modal-dialog col-md-12">
-                <!-- Modal content-->
-                <div class="modal-content modal-lg col-md-offset-2 col-md-12">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h3 class="modal-title">{{title}}</h3>
-                  </div>
-                  <div class="modal-body">
-                    <p>
-                      Infos Spectacle :
-                    </p>
-                    <p>Nom: {{title}}</p>
-                    <p>information du spectacle : <a style="color:blue;" href="{{info_show}}"> cliquer ici </a></p>
-                    <p>information du théâtre : <a style="color:blue;" href="{{info_place}}"> cliquer ici </a></p>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-
-                  </div>
+  <div class="secondpage">
+    <header>
+      <div class="head">
+        <svg class="title" version="1.1" id="title" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+           width="382.677px" height="71.93px" viewBox="0 0 382.677 71.93" enable-background="new 0 0 382.677 71.93" xml:space="preserve">
+        <text transform="matrix(1 0 0 1 1.5117 63.8633)" fill="#FFFFFF" font-family="'BlackJackRegular'" font-size="72">HalloTheatre!</text>
+        </svg>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <div class="row listSpectacle">
+          {{#spectacles}}
+          <div class="col-md-4">
+            <div class="boutonModal" style="background-image: url({{poster}})">
+              <div class="opacity">
+                  <h3>{{title}}</h3>
+                  <p>Du {{date_start}}</p>
+                  <p>Au {{date_end}}</p>
+                  <a href="" data-toggle="modal" data-target="#myModal">
+                    <p class="knowMore">En savoir plus...</p>
+                  </a>
+              </div>
+          <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog col-md-12">
+              <!-- Modal content-->
+              <div class="modal-content modal-lg col-md-offset-2 col-md-12">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h3 class="modal-title">{{title}}</h3>
+                </div>
+                <div class="modal-body">
+                  <p>
+                    Infos Spectacle :
+                  </p>
+                  <p>Nom: {{title}}</p>
+                  <p>information du spectacle : <a style="color:blue;" href="{{info_show}}"> cliquer ici </a></p>
+                  <p>information du théâtre : <a style="color:blue;" href="{{info_place}}"> cliquer ici </a></p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
               </div>
             </div>
           </div>
-        </li>
-        {{/spectacles}}
-      </ul>
-    </div>
+        </div>
+        </div>
+          {{/spectacles}}
+        </div>
+      </div>
 
-    <!-- pagination -->
-    <div class="col-md-offset-4 col-md-6">
-      <ul class="pagination">
-        {{#pages}}
-<<<<<<< HEAD:include/templates/list_spectacles.html
-          <a href="list_spectacles.php?offset={{value}}&zip_code={{zip_code}}"><li id='{{key}}'>{{key}}</li></a>
-=======
-        <a href="list_spectacles.php?page={{value}}"><li id='{{key}}'>{{key}}</li></a>
->>>>>>> 6a4fcfffe45f9b882f2f42ec7f30d0d23e0c60c9:assets/templates/dataProject2.html
-        {{/pages}}
-      </ul>
+
+      <!-- pagination -->
+      <div class="row">
+      <div class="col-md-12">
+      <div class="text-center">
+        <ul class="pagination">
+          {{#pages}}
+          <li><a href="list_spectacles.php?offset={{value}}&zip_code={{zip_code}}">{{key}}</a></li>
+          {{/pages}}
+        </ul>
+      </div>
     </div>
-    <!-- fin de pagination -->
+  </div>
+      <!-- fin de pagination -->
 
   </main>
   <footer>
-    <div class="test">
-      <div class="textFoot">
-        <h4>Contact:</h4>
-        <p>ali.j@codeur.online</p>
-      </div>
-      <div class="icons">
+      <div class="text-center">
+          <a href="mailto:&#097;&#108;&#105;&#046;&#106;&#064;&#099;&#111;&#100;&#101;&#117;&#114;&#046;&#111;&#110;&#108;&#105;&#110;&#101;"><svg class="mail" height="50px" version="1.1" viewBox="0 0 50 50" width="50px" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns:xlink="http://www.w3.org/1999/xlink"><title/><defs/>
+            <g fill-rule="evenodd" fill="#FFFFFF" id="Page-1" stroke="none" stroke-width="1"><g fill="#FFFFFF" id="Mail">
+              <path class="mailPath" d="M25,0 C11.1928806,0 0,11.1928806 0,25 C0,38.8071194 11.1928806,50 25,50 C38.8071194,50 50,38.8071194 50,25 C50,11.1928806 38.8071194,0 25,0 Z M25,3 C12.8497349,3 3,12.8497349 3,25 C3,37.1502651 12.8497349,47 25,47 C37.1502651,47 47,37.1502651 47,25 C47,12.8497349 37.1502651,3 25,3 Z M37,31.9646738 L37,17 L28.262875,25.4642914 L37,31.9646738 Z M13,31.9646738 L21.7369375,25.4633812 L13,17 L13,31.9646738 Z M22.9140156,26.604743 L13,33 L37,33 L27.08575,26.604743 L25,28.625083 L22.9140156,26.604743 Z M13.72,17 L25,26.0581312 L36.28,17 L13.72,17 Z M13.72,17" id="Oval-1"/></g></g>
+          </svg>
+          </a>
         <a href="https://github.com/ali-loup-acs/list_theater_404">
-          <svg class="git" enable-background="new 0 0 512 512" id="Layer_1" version="1.1" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-            <g><path d="M256.6,507.8C118.1,507.3,7.3,393.8,8.5,254.7C9.6,118.1,119.9,4.6,260.2,6.3   C397.3,7.9,507.1,121.1,505.5,260C504,396,394.7,507.7,256.6,507.8z M221.2,377.5c-1.6-0.3-2.3-0.4-3.1-0.5   c-19.1-2.7-37-8.4-53-19.8c-17.1-12.2-27.6-28.6-31.9-48.7c-4.4-20.5-2.7-41.2,0.5-61.7c2.2-14.1,7-27.4,18-37.5   c1.6-1.5,1.5-2.7,0.7-4.7c-6-16.6-5.3-33.3-0.3-50c1-3.3,2.6-4.7,6.1-3.4c4.2,1.5,8.5,2.8,12.4,5.1c10.7,6.3,18.9,15,26.1,24.9   c1.8,2.4,3,2.8,5.5,1.1c6.2-4.3,13.5-5.6,20.6-6.9c17.2-3.2,34.5-2.6,51.8-1.8c10.1,0.5,20.1,2.3,29.7,5.9c3,1.1,5.7,5,8.5,3.5   c2.8-1.4,4.5-5.2,6.7-7.8c8.8-10.6,18.9-19.4,32.5-23.7c4.4-1.4,6.4-0.7,7.9,4c5,16.3,5.7,32.4-0.6,48.4c-1,2.5-0.8,4.3,1.3,6.2   c8.3,7.7,13.1,17.6,15.6,28.5c4.3,18.6,5.4,37.6,4.2,56.6c-1.2,18.2-7.1,34.8-19.3,48.8c-16.4,18.8-37.8,28.1-61.9,32.2   c-2.8,0.5-5.7,1-8.7,1.5c7.1,11.1,10.5,22.6,10.6,35c0.1,14.3,0,28.7,0,43c0,9.3,0,18.6,0,28c15.2-1.5,43.6-11.6,63.4-22.4   c92.3-50.3,138.9-154.2,115.4-257.1C452.1,81.8,331,4.5,208.6,31C93,56.1,13,167.5,30.4,289.9c8.1,56.9,34.2,104.5,77.4,142.4   c28.5,25,61.5,41.7,98.5,50.3c2.9,0.7,4.2,0.5,4.1-3c-0.2-9.8-0.2-19.7,0-29.5c0-3.3-0.6-4.3-4.2-3.6c-6.5,1.3-13.2,2-19.9,1.6   c-21.2-1.1-38.4-9.5-50.5-27.5c-4.1-6.1-6.4-13.2-10.3-19.3c-6.9-10.7-13-22-24.5-28.9c-1.5-0.9-3.3-2.3-2.4-4.4   c0.8-2,3-1.7,4.8-1.9c12.8-1,23.3,3.8,32,13c4.6,4.9,7.5,11,11.5,16.3c13.3,17.7,38.7,25.3,59.5,17.8c3-1.1,3.9-2.6,4.3-5.7   C211.9,397,213.9,386.7,221.2,377.5z" fill="#FFFFFF"/></g>
+          <svg class="git" enable-background="new 0 0 512 512" height="512px" id="Layer_1" version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <g><path class="gitPath" clip-rule="evenodd" d="M296.133,354.174c49.885-5.891,102.942-24.029,102.942-110.192   c0-24.49-8.624-44.448-22.67-59.869c2.266-5.89,9.515-28.114-2.734-58.947c0,0-18.139-5.898-60.759,22.669   c-18.139-4.983-38.09-8.163-56.682-8.163c-19.053,0-39.011,3.18-56.697,8.163c-43.082-28.567-61.22-22.669-61.22-22.669   c-12.241,30.833-4.983,53.057-2.718,58.947c-14.061,15.42-22.677,35.379-22.677,59.869c0,86.163,53.057,104.301,102.942,110.192   c-6.344,5.452-12.241,15.873-14.507,30.387c-12.702,5.438-45.808,15.873-65.758-18.592c0,0-11.795-21.31-34.012-22.669   c0,0-22.224-0.453-1.813,13.592c0,0,14.96,6.812,24.943,32.653c0,0,13.6,43.089,76.179,29.48v38.543   c0,5.906-4.53,12.702-15.865,10.89C96.139,438.977,32.2,354.626,32.2,255.77c0-123.807,100.216-224.022,224.03-224.022   c123.347,0,224.023,100.216,223.57,224.022c0,98.856-63.946,182.754-152.828,212.688c-11.342,2.266-15.873-4.53-15.873-10.89   V395.45C311.1,374.577,304.288,360.985,296.133,354.174L296.133,354.174z M512,256.23C512,114.73,397.263,0,256.23,0   C114.73,0,0,114.73,0,256.23C0,397.263,114.73,512,256.23,512C397.263,512,512,397.263,512,256.23L512,256.23z" fill="#FFFFFF" fill-rule="evenodd"/></g>
           </svg>
         </a>
         <a href="https://twitter.com/AccessCodeOFP">
-          <svg class="twitt" enable-background="new 0 0 144.083 144" height="144px" id="Twitter" version="1.1" viewBox="0 0 137.083 134" width="144.083px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-            <path d="M72.041,11.166c-33.543,0-60.833,27.29-60.833,60.834c0,33.545,27.29,60.834,60.833,60.834  c33.544,0,60.835-27.289,60.835-60.834C132.875,38.456,105.584,11.166,72.041,11.166z M72.041,126.834  c-30.235,0-54.833-24.598-54.833-54.834c0-30.235,24.598-54.834,54.833-54.834c30.235,0,54.835,24.599,54.835,54.834  C126.875,102.236,102.276,126.834,72.041,126.834z"/>
-            <path d="M99.208,52.18c1.398-0.722,4.746-2.867,6.324-7.471c0,0-3.803,2.75-8.979,3.074l-0.094,0.052  c-2.648-2.89-6.455-4.703-10.688-4.703c-8.008,0-14.499,6.492-14.499,14.5c0,1.215,0.151,2.395,0.434,3.523l-0.07-0.105  c0,0-15.53,0.89-30.171-15.127c0,0-6.473,11.001,4.61,19.414c-2.427,0.404-6.713-1.78-6.713-1.78s0.242,11.566,11.728,14.398  c-1.86,0.486-5.339,0.646-6.471,0.162c0,0,1.698,8.816,13.428,10.354c-2.993,1.699-8.574,6.875-21.194,5.904  c0,0,9.062,7.441,25.887,6.391s29.04-12.377,33.974-24.348c4.934-11.971,3.561-18.787,3.561-18.787s4.123-2.164,6.957-7.34  c-1.309,0.392-6.164,1.578-7.971,2.017C99.243,52.266,99.225,52.223,99.208,52.18z"/>
+          <svg class="twitt" height="50px" version="1.1" viewBox="0 0 50 50" width="50px" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns:xlink="http://www.w3.org/1999/xlink"><title/><defs/>
+            <g fill="FFFFFF" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1"><g fill="FFFFFF" id="Twitter"><path d="M25,50 C38.8071194,50 50,38.8071194 50,25 C50,11.1928806 38.8071194,0 25,0 C11.1928806,0 0,11.1928806 0,25 C0,38.8071194 11.1928806,50 25,50 Z M25,47 C37.1502651,47 47,37.1502651 47,25 C47,12.8497349 37.1502651,3 25,3 C12.8497349,3 3,12.8497349 3,25 C3,37.1502651 12.8497349,47 25,47 Z M24.6822554,20.5542975 L24.729944,21.3761011 L23.9351333,21.2754721 C21.0420225,20.8897275 18.5145246,19.5815504 16.3685358,17.3844837 L15.3193857,16.2943361 L15.0491501,17.0993681 C14.4768864,18.8939188 14.8424993,20.7890985 16.0347153,22.0637326 C16.6705638,22.7681357 16.5274979,22.8687647 15.4306592,22.4494772 C15.0491501,22.3153051 14.7153296,22.2146761 14.6835371,22.2649907 C14.5722637,22.3823912 14.9537728,23.9085978 15.2558008,24.5123719 C15.6691024,25.350947 16.5116017,26.1727505 17.433582,26.6591241 L18.2124965,27.0448686 L17.2905161,27.0616401 C16.4003282,27.0616401 16.3685358,27.0784116 16.4639131,27.4306131 C16.7818374,28.5207608 18.0376382,29.6779944 19.436505,30.1811394 L20.4220701,30.533341 L19.5636746,31.070029 C18.2919776,31.8415181 16.7977335,32.2775772 15.3034895,32.3111202 C14.5881599,32.3278916 14,32.3949776 14,32.4452922 C14,32.6130071 15.939338,33.5522113 17.0679692,33.9211843 C20.4538626,35.0113319 24.4756046,34.5417298 27.4958851,32.6800932 C29.6418739,31.3551445 31.7878628,28.7220188 32.7893242,26.1727505 C33.3297954,24.8142589 33.8702667,22.3320767 33.8702667,21.1413 C33.8702667,20.369811 33.9179553,20.269182 34.8081432,19.3467494 C35.3327183,18.8100613 35.8255009,18.2230588 35.9208782,18.0553437 C36.0798403,17.7366852 36.0639442,17.7366852 35.2532373,18.0218007 C33.9020591,18.5249458 33.7113045,18.4578598 34.3789455,17.7031422 C34.8717281,17.1664541 35.459888,16.1937071 35.459888,15.9085915 C35.459888,15.858277 35.2214448,15.9421346 34.9512092,16.093078 C34.6650773,16.2607931 34.0292288,16.5123656 33.5523424,16.6633091 L32.6939469,16.9484246 L31.9150324,16.394965 C31.4858346,16.093078 30.8817786,15.757648 30.5638543,15.657019 C29.7531474,15.422218 28.5132428,15.455761 27.7820169,15.724105 C25.7949903,16.4788226 24.5391894,18.4243168 24.6822554,20.5542975 C24.6822554,20.5542975 24.5391894,18.4243168 24.6822554,20.5542975 Z M24.6822554,20.5542975" id="Oval-1"/></g></g>
           </svg>
         </a>
       </div>
-    </div>
   </footer>
 </div>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
 </body>
 
 </html>

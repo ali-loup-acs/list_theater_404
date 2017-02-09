@@ -2,6 +2,7 @@
 require_once('include/require.php');
 require_once('include/lib/IteratorPresenter.class.php');
 define('NB_BY_PAGE',6);
+define('MAX_PAGER',9);
 
 $spectacles = new Spectacles();
 //update database
@@ -27,7 +28,7 @@ if ($spectacles->is_valid_zip_code($zip_code)) {
   $spectacles_result['spectacles'] = $spectacles->findData();
 }
 
-$spectacles_result['pages'] = new IteratorPresenter($spectacles->pagerData()['pages']); // reformat the numeric array to an associative array
+$spectacles_result['pages'] = new IteratorPresenter($spectacles->pagerData(MAX_PAGER)['pages']); // reformat the numeric array to an associative array
 $spectacles_result['zip_code'] = $zip_code;
 
 render_template('list_spectacles',$spectacles_result);

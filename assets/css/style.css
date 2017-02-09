@@ -1,27 +1,67 @@
 
 @font-face {
-  font-family: Merriweatheritalic;
+  font-family: "Merriweatheritalic";
   src: url(../fonts/Merriweather-Italic.ttf);
 }
-@font-face {
-  font-family: "black_jar";
-  src: url(../fonts/BLACKJAR.TTF);
+@font-face{
+  font-family: "Merriweatherregular";
+  src: url(../fonts/Merriweather-Regular.ttf);
 }
-#remote .empty-message{
-  color: black;
+@font-face {
+    font-family: "BlackJackRegular";
+    src:url(../fonts/blackJack.ttf);
+}
+.firstpage{
+  background-image: url(../img/page1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow-x: hidden;
+}
+.secondpage{
+  background-image: url(../img/rideauAccueilFiltre.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow-x: hidden;
+}
+header #titre{
+  font-family: "BlackJackRegular";
+  width: 475px;
+  margin-bottom: 10%;
+}
+.title{
+  font-family: "BlackJackRegular";
+  margin:0;
+  width: 475px;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+.headcontent{
+  margin-top: 50vh; /* poussé de la moitié de hauteur de viewport */
+  transform: translateY(-50%); /* tiré de la moitié de sa propre hauteur */
+}
+.head{
   text-align: center;
 }
+.iconDown{
+  margin-left: 50%;
+  transform: translateX(-50%);
+  height: 5%;
+  width: 5%;
+}
+
+
 .typeahead,
 .tt-query,
 .tt-hint {
   padding: 8px 12px;
-  font-size: 4vh;
+  font-size: 2.5vh;
   /* text-align: center;*/
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   border-radius: 8px;
   outline: none;
-  width: 305px;
   height: 60px;
   line-height: 30px;
   border: 2px solid #ccc;
@@ -32,7 +72,7 @@
 }
 
 .typeahead:focus {
-  border: 2px solid #0097cf;
+  border: 2px solid #e22e2d;
 }
 
 .tt-query {
@@ -71,14 +111,17 @@
 
 
 .input-group{
-  margin: auto;
-  font-family: Merriweatheritalic;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40vh; /* poussé de la moitié de hauteur de viewport */
+  transform: translateY(-50%);
+  font-family: Merriweatherregular;
 }
 
 tt-highlight{
   color:red;
 }
-header {
+#firsthead{
   background-image: url(../img/rideauAccueil.jpg);
   background-size: cover;
   background-repeat: no-repeat ;
@@ -87,21 +130,7 @@ header {
   width: 100%;
   height: 100vh;
 }
-
-header .headcontent {
-  text-align: center;
-  color: #FFFFFF;
-  margin-top: 50vh; /* poussé de la moitié de hauteur de viewport */
-  transform: translateY(-50%); /* tiré de la moitié de sa propre hauteur */
-}
-
-h1{
-  font-family: "black_jar";
-  font-size: 8vh;
-  margin-bottom: 10%;
-}
-
-main{
+#firstmain{
   background-image: url(../img/page1.jpg);
   background-size: cover;
   background-repeat: no-repeat;
@@ -111,62 +140,157 @@ main{
   padding-bottom: 100px;
 }
 
-main p{
+#firstmain p{
   color: #FFFFFF;
   text-align: center;
   width: 70%;
   margin-left: auto;
   margin-right: auto;
   padding-top: 4%;
-  font-family: Merriweatheritalic;
+  font-family: "Merriweatherregular";
   font-size: 3vh;
   margin-bottom: 10%;
 }
 
 label{
   color: #FFFFFF;
-  font-family: Merriweatheritalic;
+  font-family: "Merriweatherregular";
+}
+.listSpectacle .col-md-4{
+  padding: 15px;
+}
+.opacity{
+  padding: 15px;
+    height: 30vh;
+    background-color: rgba(255,255,255,0.3);
+    z-index: 1;
+    width: 100%;
+}
+.boutonModal{
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 30vh;
 }
 
+.boutonModal h3{
+  font-family: "Merriweatheritalic";
+  font-size: 1.5em;
+  text-align: center;
+}
+.boutonModal p{
+  font-family: "Merriweatherregular";
+  font-size: 1em;
+  text-align: center;
+}
+
+.boutonModal a{
+  text-decoration: none;
+  color:#FFFFFF;
+}
+
+.boutonModal a:hover{
+  text-decoration: none;
+  color:#e22e2d;
+}
+.knowMore{
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #B61817;
+  color: #FFFFFF;
+  background-color: #B61817;
+  width: 50%;
+  font-size: 1em;
+}
+.knowMore:hover{
+  color: #424141;
+  background-color: #e22e2d;
+}
+.pagination li a{
+  background-color: #212020 !important;
+  color: #FFFFFF !important;
+  border: 1px solid #212020 !important;
+}
+.pagination li a:hover{
+  color: #e22e2d !important;
+}
+ul .pagination{
+  list-style: none;
+  margin-left: auto;
+  margin-right: auto;
+}
 footer{
-  background-color: #000000;
   color:#FFFFFF;
   padding-top: 0.5%;
-  height:100px;
-  position:absolute;
   bottom: 0%;
-  width: 100%;
 }
-.textFoot{
-  text-align: center;
-  width: 250px;
-  float: left;
-}
-.test{
-  padding-top: 1%;
-  padding-bottom: %;
-  margin: auto;
-  width: 500px;
+.mail{
+  fill: #FFFFFF;
+  width: 70px;
   height: 70px;
-}
-.icons{
-  display: inline;
-  width: 150px;
-  float:right;
+  padding-right: 0.5%;
 }
 .git{
-  padding-bottom: 0.3%;
-  height: 29.7%;
-  width: 29.7%;
   fill: #FFFFFF;
+  width: 70px;
+  height: 70px;
+  padding-right: 0.5%;
 }
 .twitt{
-  height: 33%;
-  width: 33%;
+  width: 65px;
+  height: 65px;
+  padding-bottom: 5px;
   fill: #FFFFFF;
 }
+.text-center{
+  padding-bottom: 1%;
+}
 
-#wrap{
-  min-height: 100%;
-  position:relative;
+
+@media screen and (max-width: 640px) {
+  header #titre{
+    font-family: "BlackJackRegular";
+    width: 195px;
+    height: 195px;
+    margin-bottom: 10%;
+  }
+  header #title{
+    font-family: "BlackJackRegular";
+    /*margin:0;*/
+    width: 195px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+  }
+
+  .iconDown{
+    margin-left: 50%;
+    transform: translateX(-50%);
+    height: 20%;
+    width: 20%;
+  }
+  .input-group{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25vh; /* poussé de la moitié de hauteur de viewport */
+    transform: translateY(-50%);
+    font-family: "Merriweatherregular";
+  }
+  .mail{
+    fill: #FFFFFF;
+    width: 50px;
+    height: 50px;
+    padding-right: 0.5%;
+  }
+  .git{
+    fill: #FFFFFF;
+    width: 50px;
+    height: 50px;
+    padding-right: 0.5%;
+  }
+  .twitt{
+    width: 50px;
+    height: 50px;
+    padding-bottom: 2px;
+    fill: #FFFFFF;
+  }
 }
